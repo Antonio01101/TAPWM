@@ -1,0 +1,67 @@
+//Antonio Ferreira da Silva - 0031432612001
+
+<script>
+    let totalIdade = 0;
+    let maisVelha = 0;
+    let maisNova = 999;
+
+    let pessimo = 0;
+    let otimoBom = 0;
+
+    let homens = 0;
+    let mulheres = 0;
+    let outros = 0;
+
+    for (let i = 1; i <= 5; i++) {//45 na atividade, só para teste coloquei 5
+        let idade = Number(prompt("Digite a idade da pessoa " + i));
+
+        let sexo = prompt("Sexo: m (masculino), f (feminino), o (outros)").toLowerCase();
+
+        let opiniao = Number(prompt("Opinião: ótimo=4, bom=3, regular=2, péssimo=1"));
+
+        // Soma idade
+        totalIdade += idade;
+
+        // Mais velha
+        if (idade > maisVelha) {
+            maisVelha = idade;
+        }
+
+        // Mais nova
+        if (idade < maisNova) {
+            maisNova = idade;
+        }
+
+        // Opinião péssimo
+        if (opiniao === 1) {
+            pessimo++;
+        }
+
+        // Ótimo ou bom
+        if (opiniao === 4 || opiniao === 3) {
+            otimoBom++;
+        }
+
+        // Sexo
+        if (sexo === "m") {
+            homens++;
+        } else if (sexo === "f") {
+            mulheres++;
+        } else {
+            outros++;
+        }
+    }
+
+    // Resultados
+    let mediaIdade = totalIdade / 5;//45 na atividade, só para teste coloquei 5
+    let porcentagem = (otimoBom / 5) * 100;//45 na atividade, só para teste coloquei 5
+
+    alert("Média das idades: " + mediaIdade.toFixed(2));
+    alert("Pessoa mais velha: " + maisVelha);
+    alert("Pessoa mais nova: " + maisNova);
+    alert("Quantidade que respondeu péssimo: " + pessimo);
+    alert("Porcentagem ótimo e bom: " + porcentagem.toFixed(2) + "%");
+    alert("Homens: " + homens);
+    alert("Mulheres: " + mulheres);
+    alert("Outros: " + outros);
+</script>
