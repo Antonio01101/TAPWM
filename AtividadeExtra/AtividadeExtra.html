@@ -1,0 +1,72 @@
+<script>
+const pessoa1 = {
+    nome: "João",
+    idade: 20,
+    hobby: "tocar violão",
+
+    apresentar: function () {
+        alert(`Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`);
+    }
+};
+
+pessoa1.apresentar();
+
+
+const pessoa2 = new Object();
+
+pessoa2.nome = "Maria";
+pessoa2.idade = 22;
+pessoa2.hobby = "desenhar";
+
+pessoa2.apresentar = function () {
+    alert(`Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`);
+};
+
+pessoa2.apresentar();
+
+
+function Pessoa(nome, idade, hobby) {
+    this.nome = nome;
+    this.idade = idade;
+    this.hobby = hobby;
+
+    this.apresentar = function () {
+        alert(`Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`);
+    };
+}
+
+const pessoa3 = new Pessoa("Carlos", 25, "jogar futebol");
+
+pessoa3.apresentar();
+
+
+class PessoaClasse {
+    constructor(nome, idade, hobby) {
+        this.nome = nome;
+        this.idade = idade;
+        this.hobby = hobby;
+    }
+
+    apresentar() {
+        alert(`Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`);
+    }
+}
+
+const pessoa4 = new PessoaClasse("Ana", 19, "ler livros");
+
+pessoa4.apresentar();
+
+const modeloPessoa = {
+    apresentar: function () {
+        alert(`Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`);
+    }
+};
+
+const pessoa5 = Object.create(modeloPessoa);
+
+pessoa5.nome = "Pedro";
+pessoa5.idade = 30;
+pessoa5.hobby = "cozinhar";
+
+pessoa5.apresentar();
+</script>
