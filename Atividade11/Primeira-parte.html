@@ -1,0 +1,16 @@
+<script>
+    function Retangulo(base, altura) {
+        this.base = base;
+        this.altura = altura;
+
+        this.calcularArea = function () {
+            return this.base * this.altura;
+        };
+    }
+
+    let retangulo1 = new Retangulo(10, 5);
+
+    alert("Base: " + retangulo1.base);
+    alert("Altura: " + retangulo1.altura);
+    alert("Área do retângulo: " + retangulo1.calcularArea());
+</script>
