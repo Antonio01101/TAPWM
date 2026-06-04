@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade RadioButton</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        input[type="text"]{
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .opcao{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Transformar Texto</h2>
+
+    <!-- Input Text -->
+    <input type="text" id="texto" placeholder="Digite um texto">
+
+    <br>
+
+    <!-- RadioButton Maiúsculo -->
+    <div class="opcao">
+        <input type="radio" name="tipo" id="maiusculo" onclick="transformarMaiusculo()">
+        <label for="maiusculo">Maiúsculas</label>
+    </div>
+
+    <!-- RadioButton Minúsculo -->
+    <div class="opcao">
+        <input type="radio" name="tipo" id="minusculo" onclick="transformarMinusculo()">
+        <label for="minusculo">Minúsculas</label>
+    </div>
+
+    <script>
+
+        function transformarMaiusculo(){
+            let texto = document.getElementById("texto");
+
+            texto.value = texto.value.toUpperCase();
+        }
+
+        function transformarMinusculo(){
+            let texto = document.getElementById("texto");
+
+            texto.value = texto.value.toLowerCase();
+        }
+
+    </script>
+
+</body>
+</html>
