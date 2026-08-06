@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 15 - Fatec Sorocaba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        select {
+            padding: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function carregarCurso(elementoSelect) {
+            let nomeCurso = elementoSelect.options[elementoSelect.selectedIndex].text;
+            let valorCurso = elementoSelect.value;
+
+            if (valorCurso === "") return;
+
+            let confirmar = confirm("Deseja abrir a janela do curso: " + nomeCurso + "?");
+
+            if (confirmar) {
+                let novaJanela = window.open("", "_blank", "width=600,height=300");
+
+                let infoCurso = "";
+                if (valorCurso === "ads") {
+                    infoCurso = "<p>O curso de Análise e Desenvolvimento de Sistemas foca em projetar e criar softwares.</p>";
+                } else if (valorCurso === "biomedicos") {
+                    infoCurso = "<p>O curso de Sistemas Biomédicos foca em equipamentos de saúde e tecnologia médica.</p>";
+                } else if (valorCurso === "polimeros") {
+                    infoCurso = "<p>O curso de Polímeros foca na produção e qualidade de plásticos e borrachas.</p>";
+                }
+
+                novaJanela.document.write("<html><head><title>" + nomeCurso + "</title>");
+                novaJanela.document.write("<style>body{font-family:Arial; padding:20px;}</style></head><body>");
+                novaJanela.document.write("<h2>" + nomeCurso + "</h2>");
+                novaJanela.document.write(infoCurso);
+                novaJanela.document.write("<button onclick='window.close()'>Fechar</button>");
+                novaJanela.document.write("</body></html>");
+                novaJanela.document.close();
+            }
+
+            elementoSelect.value = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>Cursos da Fatec</h1>
+    <label for="cursos">Selecione um curso:</label><br>
+    <select id="cursos" onchange="carregarCurso(this)">
+        <option value="">-- Escolha --</option>
+        <option value="ads">Análise e Desenvolvimento de Sistemas (ADS)</option>
+        <option value="biomedicos">Sistemas Biomédicos</option>
+        <option value="polimeros">Polímeros</option>
+    </select>
+</body>
+</html>
