@@ -1,3 +1,5 @@
+//Exlui a atividade sem querer e tive que remandar por isso a data esta assim
+
 let app = require('./app/config/server');
 
 let rotaHome = require('./app/routes/home');
